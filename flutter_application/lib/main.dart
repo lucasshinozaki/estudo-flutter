@@ -29,8 +29,13 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        title: Text("Aplicativo IMC"),
+        centerTitle: true,
+      ),
+      body: Text("Testando o Scaffold"),
     );
   }
 }
