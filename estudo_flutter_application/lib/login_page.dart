@@ -1,3 +1,4 @@
+import 'package:estudo_flutter_application/home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -44,6 +45,9 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: () {
                   if (email == 'email@hotmail.com' && password == '123') {
                     print("correto");
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                    );
                   } else {
                     print('login invalido');
                   }
