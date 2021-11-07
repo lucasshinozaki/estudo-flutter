@@ -1,4 +1,5 @@
 import 'package:estudo_flutter_application/app_controller.dart';
+import 'package:estudo_flutter_application/login_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class AppWidget extends StatelessWidget {
                 brightness: AppController.instance.isDartTheme 
                 ? Brightness.dark
                 : Brightness.light),
-            home: HomePage(),
+            home: LoginPage(),
           );
         });
   }
