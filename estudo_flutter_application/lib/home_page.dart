@@ -14,6 +14,33 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: Column(
+          children: [
+            UserAccountsDrawerHeader(
+                currentAccountPicture: Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQPzY5hNes9zAKobQjnNGnkuePIHjYs0oibg&usqp=CAU'),
+                accountName: Text('Lucas Shinozaki'),
+                accountEmail: Text('lucas@shinozaki.com')
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Inicio'),
+              subtitle: Text('tela de inicio'),
+              onTap: () {
+                print('Nome');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Logout'),
+              subtitle: Text('Finalizar sessão'),
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed('/');
+              },
+            )
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: Text("Home Page"),
         actions: [
@@ -67,15 +94,15 @@ class HomePageState extends State<HomePage> {
 }
 
 class CustomSwitch extends StatelessWidget {
-  const CustomSwitch({ Key? key }) : super(key: key);
+  const CustomSwitch({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Switch(
-          value: AppController.instance.isDartTheme,
-          onChanged: (value) {
-            AppController.instance.changeTheme();
-          },
-        );
+      value: AppController.instance.isDartTheme,
+      onChanged: (value) {
+        AppController.instance.changeTheme();
+      },
+    );
   }
 }
