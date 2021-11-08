@@ -13,38 +13,46 @@ class _LoginPageState extends State<LoginPage> {
   String email = "";
   String password = "";
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: SizedBox(
+  Widget _body() {
+    return Column(
+      children: [
+        SizedBox(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.width,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                width: 200,
-                height: 200,
-                child: Image.asset('assets\\images\\logo.png')
-              ),
+                  width: 100,
+                  height: 100,
+                  child: Image.asset('assets/images/logo.png')),
               Container(height: 20),
-              TextField(
-                onChanged: (text) {
-                  email = text;
-                },
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                    labelText: "Email", border: OutlineInputBorder()),
-              ),
-              SizedBox(height: 10),
-              TextField(
-                onChanged: (text) {
-                  password = text;
-                },
-                obscureText: true,
-                decoration: InputDecoration(
-                    labelText: "Password", border: OutlineInputBorder()),
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Column(
+                    children: [
+                      TextField(
+                        onChanged: (text) {
+                          email = text;
+                        },
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                            labelText: "Email", border: OutlineInputBorder()),
+                      ),
+                      SizedBox(height: 10),
+                      TextField(
+                        onChanged: (text) {
+                          password = text;
+                        },
+                        obscureText: true,
+                        decoration: InputDecoration(
+                            labelText: "Password",
+                            border: OutlineInputBorder()),
+                      ),
+                    ],
+                  ),
+                ),
               ),
               SizedBox(height: 15),
               ElevatedButton(
@@ -61,7 +69,27 @@ class _LoginPageState extends State<LoginPage> {
             ],
           ),
         ),
-      ),
+      ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+          child: Stack(
+            children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height,
+              child: Image.asset(
+                'assets/images/fundo.jpeg',
+                fit: BoxFit.cover,  
+              )
+            ),
+          Container(color: Colors.black.withOpacity(0.3)),
+          _body()
+        ],
+      )),
     );
   }
 }
