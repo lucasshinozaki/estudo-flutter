@@ -26,9 +26,7 @@ class _LoginPageState extends State<LoginPage> {
               Container(
                 width: 200,
                 height: 200,
-                child: Image.network(
-                  'https://cdn.logo.com/hotlink-ok/logo-social.png'
-                ),
+                child: Image.asset('assets\\images\\logo.png')
               ),
               Container(height: 20),
               TextField(
