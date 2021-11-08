@@ -45,9 +45,7 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: () {
                   if (email == 'email@hotmail.com' && password == '123') {
                     print("correto");
-                    Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => HomePage()),
-                    );
+                    Navigator.of(context).pushReplacementNamed('/home');
                   } else {
                     print('login invalido');
                   }
