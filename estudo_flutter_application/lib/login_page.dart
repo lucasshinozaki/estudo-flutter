@@ -29,7 +29,8 @@ class _LoginPageState extends State<LoginPage> {
               Container(height: 20),
               Card(
                 child: Padding(
-                  padding: const EdgeInsets.all(12.0),
+                  padding: const EdgeInsets.only(
+                      left: 12, right: 12, top: 20, bottom: 12),
                   child: Column(
                     children: [
                       TextField(
@@ -50,22 +51,31 @@ class _LoginPageState extends State<LoginPage> {
                             labelText: "Password",
                             border: OutlineInputBorder()),
                       ),
+                      SizedBox(height: 15),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.red,
+                        ),
+                        onPressed: () {
+                          if (email == 'email@hotmail.com' &&
+                              password == '123') {
+                            print("correto");
+                            Navigator.of(context).pushReplacementNamed('/home');
+                          } else {
+                            print('login invalido');
+                          }
+                        },
+                        child: Container(
+                            width: double.infinity,
+                            child: Text(
+                              "Entrar",
+                              textAlign: TextAlign.center,
+                            )),
+                      )
                     ],
                   ),
                 ),
               ),
-              SizedBox(height: 15),
-              ElevatedButton(
-                onPressed: () {
-                  if (email == 'email@hotmail.com' && password == '123') {
-                    print("correto");
-                    Navigator.of(context).pushReplacementNamed('/home');
-                  } else {
-                    print('login invalido');
-                  }
-                },
-                child: Text("Entrar"),
-              )
             ],
           ),
         ),
@@ -78,14 +88,13 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: SingleChildScrollView(
           child: Stack(
-            children: [
-            SizedBox(
+        children: [
+          SizedBox(
               height: MediaQuery.of(context).size.height,
               child: Image.asset(
                 'assets/images/fundo.jpeg',
-                fit: BoxFit.cover,  
-              )
-            ),
+                fit: BoxFit.cover,
+              )),
           Container(color: Colors.black.withOpacity(0.3)),
           _body()
         ],
