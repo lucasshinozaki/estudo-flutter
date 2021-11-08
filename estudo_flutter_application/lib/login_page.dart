@@ -23,6 +23,14 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Container(
+                width: 200,
+                height: 200,
+                child: Image.network(
+                  'https://cdn.logo.com/hotlink-ok/logo-social.png'
+                ),
+              ),
+              Container(height: 20),
               TextField(
                 onChanged: (text) {
                   email = text;
