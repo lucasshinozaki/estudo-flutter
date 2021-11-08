@@ -18,7 +18,13 @@ class HomePageState extends State<HomePage> {
         child: Column(
           children: [
             UserAccountsDrawerHeader(
-                currentAccountPicture: Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQPzY5hNes9zAKobQjnNGnkuePIHjYs0oibg&usqp=CAU'),
+                currentAccountPicture: ClipOval(
+                  //currentAccountPicture: ClipRRect(
+                  //borderRadius: BorderRadius.circular(40),
+                  child: Image.network(
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL3Hl5FXWpEFo9p7GTrCTz2jKeSpMPXQJ7JQ&usqp=CAU'
+                    ),
+                  ),
                 accountName: Text('Lucas Shinozaki'),
                 accountEmail: Text('lucas@shinozaki.com')
             ),
